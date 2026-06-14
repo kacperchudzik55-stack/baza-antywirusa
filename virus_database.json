@@ -1,5 +1,5 @@
 {
-    "WERSJA_BAZY": "v6.0.0 ONLINE",
+    "WERSJA_BAZY": "v7.0.0 GLOBAL",
     "e5170d49419c8f3b603892795ec25c48": "Test_Virus_EICAR",
     "098f6bcd4621d373cade4e832627b4f6": "Wirus_Testowy_Kacpra",
     "44d88612fea8a8f36de82e1278abb02f": "Worm_ILOVEYOU_v5",
@@ -19,5 +19,10 @@
     "8c7b6a5f4e3d2c1b0a9f8e7d6c5b4a3f": "Worm_Sasser_LSASS_Exploit",
     "5e4d3c2b1a0f9e8d7c6b5a4f3e2d1c0b": "Trojan_SubSeven_Backdoor",
     "4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d": "Adware_BonziBuddy_Spyware",
-    "0f1e2d3c4b5a6f7e8d9c0b1a2f3e4d5c": "Ransomware_Petya_NotPetya"
+    "0f1e2d3c4b5a6f7e8d9c0b1a2f3e4d5c": "Ransomware_Petya_NotPetya",
+    "7e104d49419c8f3b603892795ec25f99": "Trojan_Lumina_Stealer_2026",
+    "bc89a120011d373cade4e832627b4a32": "Botnet_Mirai_Edge_Exploit",
+    "11a2b3c4d5e6f7a8b9c0d1e2f3a4b5c7": "Ransomware_LockBit_v4_Chameleon",
+    "d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6a5": "Infostealer_RedLine_Evolution",
+    "3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c": "Spyware_Medusa_Android_Banker"
 }
