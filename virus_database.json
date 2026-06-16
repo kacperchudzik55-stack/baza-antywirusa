@@ -1,0 +1,3 @@
+{
+  "forbidden_processes": ["calc.exe", "notepad.exe"]
+}
