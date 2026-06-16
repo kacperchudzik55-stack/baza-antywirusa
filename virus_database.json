@@ -1,44 +1,50 @@
-{
-    "WERSJA_BAZY": "v8.1.0 GLOBAL",
-    "NOWOSCI_PL": [
-        "Dodano ochrone przed trojanami AI (ShadowMind)",
-        "Zaktualizowano baze o Infostealer Medusa v3",
-        "Wprowadzono sygnatury Ransomware BlackByte 2026",
-        "Dodano wykrywanie robaka sieciowego GitSpreader"
-    ],
-    "NOWOSCI_EN": [
-        "Added protection against AI trojans (ShadowMind)",
-        "Updated database with Infostealer Medusa v3",
-        "Introduced Ransomware BlackByte 2026 signatures",
-        "Added detection for GitSpreader network worm"
-    ],
-    "e5170d49419c8f3b603892795ec25c48": "Test_Virus_EICAR",
-    "098f6bcd4621d373cade4e832627b4f6": "Wirus_Testowy_Kacpra",
-    "44d88612fea8a8f36de82e1278abb02f": "Worm_ILOVEYOU_v5",
-    "84c10a120011d373cade4e832627bc89": "Ransomware_WannaCry_v5",
-    "132da8398321d373cade4e832627b11a": "Trojan_Win32_Agent_Generic",
-    "9c104d49419c8f3b603892795ec25d22": "Spyware_Pegasus_Lite",
-    "5d41402abc4b2a76b9719d911017c592": "Worm_Blaster_2003",
-    "3b74aa68d60e7e1432f89f92cf0e97bc": "Trojan_Zeus_Banking_Bot",
-    "a6f112fea8a8f36de82e1278abb02f32": "Worm_Conficker_A",
-    "2d104d49419c8f3b603892795ec25d11": "APT_Stuxnet_Industrial_Worm",
-    "6c10a120011d373cade4e832627bc89a": "Ransomware_CryptoLocker",
-    "7d132da8398321d373cade4e832627b1": "Trojan_Emotet_Dropper",
-    "f3b74aa68d60e7e1432f89f92cf0e97bc": "Spyware_DarkComet_RAT",
-    "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d": "Worm_Mydoom_Email_Spammer",
-    "9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c": "Trojan_NetBus_Classic_RAT",
-    "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6": "Wirus_Chernobyl_CIH_DOS",
-    "8c7b6a5f4e3d2c1b0a9f8e7d6c5b4a3f": "Worm_Sasser_LSASS_Exploit",
-    "5e4d3c2b1a0f9e8d7c6b5a4f3e2d1c0b": "Trojan_SubSeven_Backdoor",
-    "4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d": "Adware_BonziBuddy_Spyware",
-    "0f1e2d3c4b5a6f7e8d9c0b1a2f3e4d5c": "Ransomware_Petya_NotPetya",
-    "7e104d49419c8f3b603892795ec25f99": "Trojan_Lumina_Stealer_2026",
-    "bc89a120011d373cade4e832627b4a32": "Botnet_Mirai_Edge_Exploit",
-    "11a2b3c4d5e6f7a8b9c0d1e2f3a4b5c7": "Ransomware_LockBit_v4_Chameleon",
-    "d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6a5": "Infostealer_RedLine_Evolution",
-    "3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c": "Spyware_Medusa_Android_Banker",
-    "9a8b7c6d5e4f3a2b1c0d9e8f7a6b5c4d": "Trojan_ShadowMind_AI_Agent",
-    "2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e": "Infostealer_Medusa_v3_Stealer",
-    "f7e6d5c4b3a2f1e0d9c8b7a6f5e4d3c2": "Ransomware_BlackByte_2026_Vip",
-    "0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5e": "Worm_GitSpreader_Auto_Malware"
-}
+import customtkinter as ctk
+import subprocess
+import sys
+import os
+
+# Nowoczesny motyw
+ctk.set_appearance_mode("dark")
+ctk.set_default_color_theme("blue")
+
+app = ctk.CTk()
+app.geometry("500x400")
+app.title("Mój Antywirus 2026 - Security Shield")
+
+def start_monitor():
+    # Pobieramy ścieżkę do folderu z programem
+    base_path = os.path.dirname(os.path.abspath(__file__))
+    monitor_path = os.path.join(base_path, "monitor.py")
+    
+    # Uruchamiamy monitor w tle
+    subprocess.Popen([sys.executable, monitor_path])
+    status_label.configure(text="STATUS: OCHRONA AKTYWNA", text_color="#2CC985")
+    log_textbox.insert("0.0", ">>> System monitorowania uruchomiony...\n")
+
+# Funkcja do sprawdzania logów w czasie rzeczywistym
+def check_logs():
+    if os.path.exists("log.txt"):
+        with open("log.txt", "r") as f:
+            content = f.read()
+            log_textbox.delete("0.0", "end")
+            log_textbox.insert("0.0", content)
+    app.after(1000, check_logs)
+
+# Layout UI
+header = ctk.CTkLabel(app, text="SYSTEM ZABEZPIECZEŃ", font=("Segoe UI", 24, "bold"))
+header.pack(pady=20)
+
+status_label = ctk.CTkLabel(app, text="STATUS: CZEKA NA START", font=("Segoe UI", 14), text_color="gray")
+status_label.pack(pady=5)
+
+# Pole logów
+log_textbox = ctk.CTkTextbox(app, width=400, height=150)
+log_textbox.pack(pady=20)
+
+btn = ctk.CTkButton(app, text="URUCHOM OCHRONĘ", font=("Segoe UI", 12, "bold"), command=start_monitor)
+btn.pack(pady=10)
+
+# Uruchamiamy sprawdzanie logów
+check_logs()
+
+app.mainloop()
